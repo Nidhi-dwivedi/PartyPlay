@@ -53,7 +53,7 @@ This application is built with:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone <https://github.com/Nidhi-dwivedi/PartyPlay.git>
 
 # Enter the project directory
 cd party-play
