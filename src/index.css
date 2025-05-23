@@ -1,0 +1,194 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 216 34% 17%;
+    --radius: 0.5rem;
+  }
+
+  /* Theme classes */
+  .theme-aesthetic {
+    --background: 25 100% 97%;
+    --foreground: 330 10% 30%;
+    
+    --card: 25 100% 97%;
+    --card-foreground: 330 10% 30%;
+    
+    --popover: 25 100% 97%;
+    --popover-foreground: 330 10% 30%;
+    
+    --primary: 350 100% 88%;
+    --primary-foreground: 330 10% 30%;
+    
+    --secondary: 196 80% 85%;
+    --secondary-foreground: 330 10% 30%;
+    
+    --muted: 25 30% 90%;
+    --muted-foreground: 330 10% 50%;
+    
+    --accent: 196 80% 85%;
+    --accent-foreground: 330 10% 30%;
+    
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 330 10% 95%;
+    
+    --border: 350 30% 85%;
+    --input: 350 30% 85%;
+    --ring: 350 100% 88%;
+  }
+
+  .theme-retro {
+    --background: 40 70% 90%;
+    --foreground: 280 50% 25%;
+    
+    --card: 40 70% 95%;
+    --card-foreground: 280 50% 25%;
+    
+    --popover: 40 70% 90%;
+    --popover-foreground: 280 50% 25%;
+    
+    --primary: 160 80% 40%;
+    --primary-foreground: 40 70% 95%;
+    
+    --secondary: 320 70% 60%;
+    --secondary-foreground: 40 70% 95%;
+    
+    --muted: 40 30% 80%;
+    --muted-foreground: 280 30% 40%;
+    
+    --accent: 320 70% 60%;
+    --accent-foreground: 40 70% 95%;
+    
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 40 70% 95%;
+    
+    --border: 160 40% 70%;
+    --input: 160 40% 70%;
+    --ring: 160 80% 40%;
+  }
+
+  .theme-cyberpunk {
+    --background: 240 20% 10%;
+    --foreground: 180 100% 60%;
+    
+    --card: 240 20% 12%;
+    --card-foreground: 180 100% 60%;
+    
+    --popover: 240 20% 10%;
+    --popover-foreground: 180 100% 60%;
+    
+    --primary: 300 100% 50%;
+    --primary-foreground: 240 20% 10%;
+    
+    --secondary: 60 100% 50%;
+    --secondary-foreground: 240 20% 10%;
+    
+    --muted: 240 20% 20%;
+    --muted-foreground: 180 70% 55%;
+    
+    --accent: 60 100% 50%;
+    --accent-foreground: 240 20% 10%;
+    
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 240 20% 10%;
+    
+    --border: 300 50% 50%;
+    --input: 300 50% 50%;
+    --ring: 300 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Confetti animation */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  animation: fall 3s ease-in-out forwards;
+  z-index: 1000;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Card flip animation */
+@keyframes card-flip {
+  0% {
+    transform: perspective(1000px) rotateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-card-flip {
+  animation: card-flip 0.6s ease-out;
+}
